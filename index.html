@@ -30,45 +30,49 @@
     </header>
 
     <main id="top" class="storybook">
+      <svg class="journey-line" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M62 0 C18 150 108 250 58 390 C24 488 34 590 76 710 C120 838 42 930 58 1200" />
+      </svg>
       <section class="story-section hero-story">
         <div class="story-copy reveal">
           <h1>Hi, I&apos;m Zack.</h1>
 
           <p class="story-lede">
-            I spend a lot of time noticing things. This is a collection of the
-            work, ideas, and experiences that shaped how I think.
+            I spend a lot of time noticing things. This site is a collection of work,
+            ideas, and experiences that shaped how I think.
           </p>
           <div class="story-links" aria-label="Featured homepage pathways">
             <a href="./thinking.html">Read the thinking</a>
             <a href="./work.html">See the work</a>
           </div>
         </div>
-        <div class="storybook-visual reveal" aria-hidden="true">
-          <span class="planet"></span>
-          <span class="orbit orbit-one"></span>
-          <span class="orbit orbit-two"></span>
-          <span class="star star-one"></span>
-          <span class="star star-two"></span>
-          <span class="star star-three"></span>
+        <div class="homepage-image hero-image reveal">
+          <img
+            src="./assets/images/zack-character.png"
+            alt="Illustrated character portrait of Zack wearing a cap and glasses"
+          />
         </div>
       </section>
 
       <section class="story-section story-row curiosity">
-        <div class="story-marker reveal" aria-hidden="true">
-          <span class="moon"></span>
+        <div class="homepage-image curiosity-image reveal">
+          <img
+            src="./assets/images/telescope.png"
+            alt="Illustrated telescope pointed toward a starry sky"
+          />
         </div>
         <div class="story-copy reveal">
           <h2>I think curiosity is one of the best teachers.</h2>
 
           <p>
-            Space, nature, weird questions, long conversations. I&apos;ve always
-            been drawn toward things that make the world feel bigger.
+            Space, nature, questions, long conversations -- I&apos;ve always been
+            drawn toward things that make the world feel bigger.
           </p>
-          <a class="text-link" href="./thinking.html">Explore thoughts</a>
+          <a class="text-link" href="./thinking.html">Explore my thoughts</a>
         </div>
       </section>
 
-      <section class="story-section story-row reverse">
+      <section class="story-section story-row reverse copy-only human-insight">
         <div class="story-copy reveal">
           <h2>People rarely say exactly what they mean.</h2>
 
@@ -78,25 +82,32 @@
           </p>
           <a class="text-link" href="./case-studies/private-school-parent-values.html">Read an audience note</a>
         </div>
-        <div class="notebook-card reveal">
-          <p>What is the real question underneath the question?</p>
-          <span>trust / identity / friction</span>
-        </div>
       </section>
 
-      <section class="story-section story-row">
-        <div class="translation-map reveal" aria-hidden="true">
-          <span>messy inputs</span>
-          <i></i>
-          <span>clearer language</span>
-        </div>
+      <section class="story-section story-row copy-only translation-scene">
         <div class="story-copy reveal">
           <h2>Clarity can change how people feel.</h2>
 
-          <p>
-            I like turning complicated ideas into language people can actually
-            see themselves inside of.
-          </p>
+          <div class="sentence-panel" aria-label="Sentence clarity slider">
+            <p class="sentence-output" id="sentenceOutput" aria-live="polite">
+              I like turning complicated ideas into something people can connect with.
+            </p>
+
+            <div class="slider-row">
+              <span class="slider-label">Simple</span>
+              <input
+                id="complexitySlider"
+                class="complexity-slider"
+                type="range"
+                min="0"
+                max="18"
+                value="7"
+                step="1"
+                aria-label="Sentence complexity"
+              />
+              <span class="slider-label">Complex</span>
+            </div>
+          </div>
           <div class="story-links">
             <a href="./point-of-view.html">Point of view</a>
             <a href="./case-studies/lifecycle-outreach-map.html">Communication work</a>
@@ -104,7 +115,7 @@
         </div>
       </section>
 
-      <section class="story-section proof-section">
+      <section class="story-section proof-section proof-scene">
         <div class="section-heading reveal">
           <div>
             <h2>Noticing things can be useful when paired with action.</h2>
@@ -130,13 +141,9 @@
         </div>
       </section>
 
-      <section class="story-section closing-story">
+      <section class="story-section closing-story closing-scene">
         <div class="story-copy reveal">
-          <h2>I&apos;m still figuring things out. But I think that&apos;s part of the fun.</h2>
-
-          <p>
-            If any of this resonated with you, I&apos;d love to talk.
-          </p>
+          <h2>I&apos;m still figuring things out.<br />But that&apos;s part of the fun.</h2>
           <div class="story-links">
             <a href="./contact.html">Get in touch</a>
             <a href="https://linkedin.com/in/zack-olguin/">LinkedIn</a>
