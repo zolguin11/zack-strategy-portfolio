@@ -215,6 +215,46 @@ nav a:hover,
   transition: transform 200ms ease, background 200ms ease;
 }
 
+
+.scroll-cue {
+  display: inline-grid;
+  gap: 0.45rem;
+  justify-items: center;
+  margin-top: clamp(1.8rem, 4vw, 3rem);
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.scroll-cue i {
+  width: 1px;
+  height: 2.4rem;
+  border-left: 1px solid rgba(143, 183, 201, 0.7);
+  position: relative;
+}
+
+.scroll-cue i::after {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-right: 1px solid rgba(143, 183, 201, 0.9);
+  border-bottom: 1px solid rgba(143, 183, 201, 0.9);
+  content: "";
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.js .scroll-cue i {
+  animation: drift-down 1800ms ease-in-out infinite;
+}
+
+@keyframes drift-down {
+  0%, 100% { transform: translateY(0); opacity: 0.62; }
+  50% { transform: translateY(0.45rem); opacity: 1; }
+}
+
 .story-links a:hover,
 .contact-actions a:hover {
   transform: translateY(-2px);
@@ -1261,17 +1301,35 @@ body:has(.storybook) {
   width: min(28vw, 19rem);
   height: calc(100% - 28rem);
   min-height: 120rem;
-  opacity: 0.2;
   transform: translateX(-50%);
   pointer-events: none;
 }
 
 .journey-line path {
   fill: none;
+  stroke-linecap: round;
+}
+
+.journey-path {
+  opacity: 0.2;
   stroke: rgba(143, 183, 201, 0.48);
   stroke-dasharray: 10 16;
-  stroke-linecap: round;
   stroke-width: 2.2;
+}
+
+.journey-highlight {
+  opacity: 0.15;
+  stroke: rgba(143, 183, 201, 1);
+  stroke-dasharray: 0.008 0.992;
+  stroke-dashoffset: 1;
+  stroke-width: 2;
+  filter: none;
+  animation: journey-flow 30000ms linear infinite;
+}
+
+@keyframes journey-flow {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
 }
 
 .storybook .story-section {
@@ -1548,6 +1606,9 @@ body:has(.storybook) {
   .journey-line {
     left: 88%;
     width: 8rem;
+  }
+
+  .journey-path {
     opacity: 0.22;
   }
 
@@ -1588,4 +1649,31 @@ body:has(.storybook) {
 
 .storybook .closing-scene .story-links {
   justify-content: center;
+}
+
+.storybook .proof-scene .quiet-card .read-link {
+  align-self: end;
+  margin-top: auto;
+  padding-top: 1.2rem;
+  color: var(--ink);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.return-links {
+  display: grid;
+  gap: 0.45rem;
+  justify-content: start;
+  margin-bottom: 1.1rem;
+}
+
+.return-links .back-link {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .journey-highlight {
+    animation: none;
+    opacity: 0;
+  }
 }

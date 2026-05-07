@@ -31,7 +31,8 @@
 
     <main id="top" class="storybook">
       <svg class="journey-line" viewBox="0 0 120 1200" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M62 0 C18 150 108 250 58 390 C24 488 34 590 76 710 C120 838 42 930 58 1200" />
+        <path class="journey-path" d="M62 0 C18 150 108 250 58 390 C24 488 34 590 76 710 C120 838 42 930 58 1200" />
+        <path class="journey-highlight" pathLength="1" d="M62 0 C18 150 108 250 58 390 C24 488 34 590 76 710 C120 838 42 930 58 1200" />
       </svg>
       <section class="story-section hero-story">
         <div class="story-copy reveal">
@@ -45,6 +46,10 @@
             <a href="./thinking.html">Read the thinking</a>
             <a href="./work.html">See the work</a>
           </div>
+          <a class="scroll-cue" href="#curiosity" aria-label="Scroll to continue the homepage story">
+            <span>Scroll to keep going</span>
+            <i aria-hidden="true"></i>
+          </a>
         </div>
         <div class="homepage-image hero-image reveal">
           <img
@@ -54,7 +59,7 @@
         </div>
       </section>
 
-      <section class="story-section story-row curiosity">
+      <section id="curiosity" class="story-section story-row curiosity">
         <div class="homepage-image curiosity-image reveal">
           <img
             src="./assets/images/telescope.png"
@@ -127,16 +132,19 @@
             <p>Work</p>
             <h3>Training as a growth system</h3>
             <span>Turning team frustration into a capability-building model.</span>
+            <span class="read-link">1-2 min read</span>
           </a>
           <a class="quiet-card reveal" href="./thoughts/new-years-eve-authenticity.html">
             <p>Thinking</p>
             <h3>New Year&apos;s Eve and the search for something real</h3>
             <span>What hollow rituals reveal about authenticity and culture.</span>
+            <span class="read-link">4-5 min read</span>
           </a>
           <a class="quiet-card reveal" href="./point-of-view.html">
             <p>Point of View</p>
             <h3>Your story doesn&apos;t matter unless it&apos;s theirs</h3>
             <span>A short philosophy of brand translation and audience meaning.</span>
+            <span class="read-link">2 min read</span>
           </a>
         </div>
       </section>
