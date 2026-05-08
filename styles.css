@@ -1295,12 +1295,12 @@ body:has(.storybook) {
 
 .journey-line {
   position: absolute;
-  top: 28rem;
+  top: 58rem;
   left: 44%;
   z-index: -1;
   width: min(28vw, 19rem);
-  height: calc(100% - 28rem);
-  min-height: 120rem;
+  height: calc(100% - 116rem);
+  min-height: 0;
   transform: translateX(-50%);
   pointer-events: none;
 }
@@ -1604,8 +1604,10 @@ body:has(.storybook) {
 
 @media (max-width: 820px) {
   .journey-line {
+    top: 42rem;
     left: 88%;
     width: 8rem;
+    height: calc(100% - 84rem);
   }
 
   .journey-path {
