@@ -96,6 +96,10 @@ nav a:hover,
   content: "->";
 }
 
+.cv-download {
+  margin-top: 1.25rem;
+}
+
 .storybook {
   overflow: hidden;
 }
@@ -889,6 +893,19 @@ h3 {
   height: 100%;
   min-height: clamp(22rem, 48vw, 37rem);
   object-fit: cover;
+}
+
+.about-photo {
+  align-self: center;
+  justify-self: center;
+  width: min(100%, 22rem);
+  min-height: 0;
+  aspect-ratio: 245 / 300;
+}
+
+.about-photo img {
+  min-height: 0;
+  object-position: center center;
 }
 
 .post-image span {
