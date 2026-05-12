@@ -784,6 +784,25 @@ h3 {
     var(--wash);
 }
 
+.hpu-virginia-image::before {
+  background:
+    radial-gradient(circle at 20% 26%, rgba(143, 183, 201, 0.48), transparent 18%),
+    radial-gradient(circle at 72% 34%, rgba(214, 180, 106, 0.44), transparent 20%),
+    linear-gradient(135deg, rgba(201, 130, 99, 0.38), transparent 46%),
+    repeating-linear-gradient(90deg, rgba(36, 33, 29, 0.07) 0 1px, transparent 1px 18px),
+    var(--wash);
+}
+
+.hpu-experience-image::before,
+.experience-placeholder {
+  background:
+    radial-gradient(circle at 22% 22%, rgba(214, 180, 106, 0.42), transparent 20%),
+    radial-gradient(circle at 74% 62%, rgba(143, 183, 201, 0.4), transparent 22%),
+    linear-gradient(130deg, rgba(169, 184, 158, 0.34), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(36, 33, 29, 0.06) 0 1px, transparent 1px 24px),
+    var(--wash);
+}
+
 .culture-image::before {
   background:
     radial-gradient(circle at 18% 25%, rgba(143, 183, 201, 0.45), transparent 19%),
@@ -853,6 +872,18 @@ h3 {
 .read-link::after {
   content: " ->";
   color: var(--signal);
+}
+
+.featured-work-card {
+  grid-column: 1 / -1;
+  grid-template-columns: minmax(14rem, 0.75fr) minmax(0, 1.25fr);
+  align-items: end;
+  min-height: 20rem;
+}
+
+.featured-work-card h3 {
+  max-width: 15ch;
+  font-size: clamp(2rem, 4vw, 4rem);
 }
 
 .post {
@@ -950,6 +981,195 @@ figcaption {
 
 .article-media figcaption {
   margin-top: 0.7rem;
+}
+
+.case-study-document {
+  width: min(74rem, calc(100% - clamp(2rem, 10vw, 8rem)));
+  margin: 0 auto;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(4rem, 8vw, 7rem);
+}
+
+.case-return-links {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.case-document-hero {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+.case-document-hero h1 {
+  max-width: 16ch;
+  margin-bottom: 0.9rem;
+  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  line-height: 0.96;
+}
+
+.case-document-hero .lede {
+  max-width: 42rem;
+  font-size: clamp(1.18rem, 2vw, 1.45rem);
+}
+
+.case-document-meta {
+  display: grid;
+  gap: 0.35rem;
+  width: min(46rem, 100%);
+  margin-top: 1.35rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(36, 33, 29, 0.14);
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.case-document-meta strong {
+  color: var(--ink);
+}
+
+.case-hero-placeholder {
+  position: relative;
+  display: grid;
+  min-height: clamp(18rem, 42vw, 31rem);
+  margin: clamp(2rem, 5vw, 4rem) 0 clamp(1.5rem, 4vw, 3rem);
+  overflow: hidden;
+  border: 1px solid rgba(36, 33, 29, 0.12);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 22% 28%, rgba(143, 183, 201, 0.34), transparent 21%),
+    radial-gradient(circle at 76% 30%, rgba(214, 180, 106, 0.32), transparent 19%),
+    linear-gradient(135deg, rgba(201, 130, 99, 0.24), transparent 48%),
+    repeating-linear-gradient(90deg, rgba(36, 33, 29, 0.055) 0 1px, transparent 1px 28px),
+    var(--wash);
+  place-items: end start;
+}
+
+.case-hero-placeholder::after {
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(36, 33, 29, 0.12);
+  border-radius: 6px;
+  content: "";
+}
+
+.case-hero-placeholder div {
+  position: relative;
+  z-index: 1;
+  max-width: 31rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.case-hero-placeholder span {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--clay);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.case-hero-placeholder strong {
+  display: block;
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.case-hero-placeholder p {
+  max-width: 27rem;
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin: 2rem 0 1rem;
+  border-top: 1px solid rgba(36, 33, 29, 0.14);
+  border-bottom: 1px solid rgba(36, 33, 29, 0.14);
+}
+
+.metric-grid div {
+  padding: 1rem 1.2rem;
+  border-right: 1px solid rgba(36, 33, 29, 0.12);
+}
+
+.metric-grid div:last-child {
+  border-right: 0;
+}
+
+.metric-grid span {
+  display: block;
+  margin-bottom: 0.45rem;
+  color: var(--clay);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.metric-grid strong {
+  display: block;
+  color: var(--ink);
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.metric-grid p {
+  margin: 0.45rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.compact-proof-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.post-body h3 {
+  margin: 1.4rem 0 0.25rem;
+  color: var(--ink);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+}
+
+.case-list {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0.2rem 0 1rem;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  font-size: clamp(1.02rem, 1.6vw, 1.14rem);
+  line-height: 1.7;
+}
+
+.case-list strong {
+  color: var(--ink);
+}
+
+.pull-note {
+  margin: 2.25rem 0 0.75rem;
+  padding: 1.35rem 1.5rem;
+  border-left: 4px solid var(--signal);
+  border-radius: 8px;
+  background: rgba(143, 183, 201, 0.13);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  line-height: 1.2;
+}
+
+.figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.figure-grid .article-media {
+  margin: 0;
 }
 
 .placeholder-visual {
@@ -1203,8 +1423,11 @@ figcaption {
   .beliefs,
   .work-grid,
   .collection-grid,
+  .featured-work-card,
   .feature-strip,
   .post-hero,
+  .metric-grid,
+  .figure-grid,
   .timeline-item,
   .site-footer {
     grid-template-columns: 1fr;
