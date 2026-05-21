@@ -9,18 +9,25 @@ const updateProgress = () => {
   progress.style.width = `${percent}%`;
 };
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("is-visible");
-      }
-    });
-  },
-  { threshold: 0.18 }
-);
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+        }
+      });
+    },
+    { threshold: 0.18 }
+  );
 
-revealItems.forEach((item) => observer.observe(item));
+  revealItems.forEach((item) => observer.observe(item));
+  window.setTimeout(() => {
+    revealItems.forEach((item) => item.classList.add("is-visible"));
+  }, 1200);
+} else {
+  revealItems.forEach((item) => item.classList.add("is-visible"));
+}
 window.addEventListener("scroll", updateProgress, { passive: true });
 updateProgress();
 

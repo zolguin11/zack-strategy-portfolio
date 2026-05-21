@@ -64,9 +64,11 @@ a {
 }
 
 .brand {
-  font-family: "Cormorant Garamond", Georgia, serif;
-  font-size: 1.35rem;
+  color: var(--clay);
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1.18rem;
   font-weight: 800;
+  letter-spacing: 0;
 }
 
 nav {
@@ -786,11 +788,8 @@ h3 {
 
 .hpu-virginia-image::before {
   background:
-    radial-gradient(circle at 20% 26%, rgba(143, 183, 201, 0.48), transparent 18%),
-    radial-gradient(circle at 72% 34%, rgba(214, 180, 106, 0.44), transparent 20%),
-    linear-gradient(135deg, rgba(201, 130, 99, 0.38), transparent 46%),
-    repeating-linear-gradient(90deg, rgba(36, 33, 29, 0.07) 0 1px, transparent 1px 18px),
-    var(--wash);
+    linear-gradient(rgba(36, 33, 29, 0.22), rgba(36, 33, 29, 0.34)),
+    url("./assets/images/hpu-virginia-hero-campus.jpg") center / cover;
 }
 
 .hpu-experience-image::before,
@@ -801,6 +800,12 @@ h3 {
     linear-gradient(130deg, rgba(169, 184, 158, 0.34), transparent 45%),
     repeating-linear-gradient(0deg, rgba(36, 33, 29, 0.06) 0 1px, transparent 1px 24px),
     var(--wash);
+}
+
+.hpu-experience-image::before {
+  background:
+    linear-gradient(rgba(36, 33, 29, 0.08), rgba(36, 33, 29, 0.2)),
+    url("./assets/images/hpu-experience-tree-of-life.jpg") center / cover;
 }
 
 .culture-image::before {
@@ -839,11 +844,8 @@ h3 {
 
 .nye-image::before {
   background:
-    radial-gradient(circle at 22% 28%, rgba(201, 130, 99, 0.42), transparent 18%),
-    radial-gradient(circle at 76% 24%, rgba(214, 180, 106, 0.42), transparent 16%),
-    linear-gradient(150deg, rgba(143, 183, 201, 0.36), transparent 42%),
-    repeating-linear-gradient(90deg, rgba(36, 33, 29, 0.07) 0 1px, transparent 1px 18px),
-    var(--wash);
+    linear-gradient(rgba(36, 33, 29, 0.1), rgba(36, 33, 29, 0.26)),
+    url("./assets/images/times-square-ball-drop-hero.jpg") center / cover;
 }
 
 .about-image::before {
@@ -968,6 +970,19 @@ figcaption {
   background: rgba(247, 244, 239, 0.96);
 }
 
+.nye-hero-image figcaption {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 1;
+  padding: 0.35rem 0.5rem;
+  border-radius: 6px;
+  background: rgba(16, 17, 19, 0.56);
+  color: rgba(255, 254, 249, 0.78);
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
 .article-media {
   margin: 2rem 0;
 }
@@ -983,6 +998,10 @@ figcaption {
   margin-top: 0.7rem;
 }
 
+.centered-caption figcaption {
+  text-align: center;
+}
+
 .case-study-document {
   width: min(74rem, calc(100% - clamp(2rem, 10vw, 8rem)));
   margin: 0 auto;
@@ -994,21 +1013,94 @@ figcaption {
 }
 
 .case-document-hero {
+  position: relative;
   display: grid;
-  justify-items: center;
-  text-align: center;
+  min-height: clamp(30rem, 72vh, 46rem);
+  align-items: end;
+  overflow: hidden;
+  border-radius: 8px;
+  color: #fffef9;
+  isolation: isolate;
+}
+
+.case-document-hero::before,
+.case-document-hero::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.case-document-hero::before {
+  z-index: -2;
+  background-position: center;
+  background-size: cover;
+  filter: blur(2px) saturate(0.95);
+  transform: scale(1.025);
+}
+
+.case-document-hero::after {
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(36, 33, 29, 0.22) 0%, rgba(36, 33, 29, 0.74) 100%),
+    linear-gradient(90deg, rgba(36, 33, 29, 0.78), rgba(36, 33, 29, 0.18) 68%);
+}
+
+.case-document-hero--virginia::before {
+  background-image: url("./assets/images/hpu-virginia-hero-campus.jpg");
+}
+
+.case-document-hero--experience::before {
+  background-image: url("./assets/images/hpu-experience-tree-of-life.jpg");
+}
+
+.case-document-hero--nye::before {
+  background-image: url("./assets/images/times-square-ball-drop-hero.jpg");
+}
+
+.thought-hero {
+  margin: clamp(1rem, 3vw, 2rem) 0 clamp(3rem, 6vw, 5rem);
+}
+
+.thought-hero .return-links {
+  margin-bottom: clamp(2rem, 6vw, 5rem);
+}
+
+.thought-hero .back-link {
+  color: rgba(255, 254, 249, 0.78);
+}
+
+.thought-hero .back-link::before {
+  color: rgba(255, 254, 249, 0.72);
+}
+
+.thought-hero .hero-credit {
+  margin: 1.25rem 0 0;
+  color: rgba(255, 254, 249, 0.66);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.case-hero-content {
+  width: min(58rem, 100%);
+  padding: clamp(1.5rem, 5vw, 4rem);
 }
 
 .case-document-hero h1 {
-  max-width: 16ch;
+  max-width: 14ch;
   margin-bottom: 0.9rem;
-  font-size: clamp(3.2rem, 7vw, 6.5rem);
+  color: #fffef9;
+  font-size: clamp(3rem, 7vw, 6.5rem);
   line-height: 0.96;
+}
+
+.case-document-hero .eyebrow {
+  color: rgba(255, 254, 249, 0.78);
 }
 
 .case-document-hero .lede {
   max-width: 42rem;
-  font-size: clamp(1.18rem, 2vw, 1.45rem);
+  color: rgba(255, 254, 249, 0.86);
+  font-size: clamp(1.12rem, 2vw, 1.38rem);
 }
 
 .case-document-meta {
@@ -1016,16 +1108,14 @@ figcaption {
   gap: 0.35rem;
   width: min(46rem, 100%);
   margin-top: 1.35rem;
-  padding-top: 1.2rem;
-  border-top: 1px solid rgba(36, 33, 29, 0.14);
-  color: var(--muted);
+  color: rgba(255, 254, 249, 0.76);
   font-size: 0.96rem;
   line-height: 1.55;
   text-align: left;
 }
 
 .case-document-meta strong {
-  color: var(--ink);
+  color: #fffef9;
 }
 
 .case-hero-placeholder {
@@ -1169,6 +1259,55 @@ figcaption {
 }
 
 .figure-grid .article-media {
+  margin: 0;
+}
+
+.blog-case-body {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(49rem, 100%);
+  max-width: 49rem;
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.blog-case-body > * {
+  min-width: 0;
+}
+
+.blog-case-body h2 {
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.case-artifact {
+  width: min(100%, 54rem);
+  margin: 2.5rem auto;
+}
+
+.case-artifact--wide {
+  position: relative;
+  left: 50%;
+  width: min(100vw - clamp(2rem, 8vw, 7rem), 70rem);
+  margin-left: 0;
+  transform: translateX(-50%);
+}
+
+.case-artifact img {
+  background: rgba(255, 254, 249, 0.7);
+  box-shadow: 0 1.25rem 3rem rgba(36, 33, 29, 0.08);
+}
+
+.case-figure-pair {
+  position: relative;
+  left: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  width: min(100vw - clamp(2rem, 8vw, 7rem), 76rem);
+  margin: 2.5rem 0 2.75rem;
+  transform: translateX(-50%);
+}
+
+.case-figure-pair .case-artifact {
+  width: 100%;
   margin: 0;
 }
 
@@ -1428,6 +1567,7 @@ figcaption {
   .post-hero,
   .metric-grid,
   .figure-grid,
+  .case-figure-pair,
   .timeline-item,
   .site-footer {
     grid-template-columns: 1fr;
@@ -1513,6 +1653,31 @@ figcaption {
 
   .about-photo {
     width: min(100%, 24rem);
+  }
+
+  .case-study-document {
+    width: min(100% - 1.25rem, 74rem);
+  }
+
+  .case-document-hero {
+    min-height: 34rem;
+  }
+
+  .case-hero-content {
+    padding: 1.25rem;
+  }
+
+  .case-document-hero h1 {
+    font-size: clamp(2.55rem, 14vw, 4.7rem);
+  }
+
+  .case-artifact--wide,
+  .case-figure-pair {
+    position: static;
+    left: auto;
+    width: 100%;
+    margin-left: 0;
+    transform: none;
   }
 }
 
