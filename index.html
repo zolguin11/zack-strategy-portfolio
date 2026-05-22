@@ -39,24 +39,71 @@
           <h1>Hi, I&apos;m Zack.</h1>
 
           <p class="story-lede">
-            I spend a lot of time noticing things. This site is a collection of work,
-            ideas, and experiences that shaped how I think.
+            I spend a lot of time noticing things: what people care about, what they
+            respond to, and how ideas become meaningful. Over time, that curiosity has
+            shaped how I approach strategy, communication, and making complex things
+            make sense.
+            <strong style="display: block; margin-top: 0.7rem; color: var(--clay); font-weight: 800;">This site is a collection of work, ideas, and experiences that shaped how I think.</strong>
           </p>
           <div class="story-links" aria-label="Featured homepage pathways">
-            <a href="./thinking.html">Read the thinking</a>
-            <a href="./work.html">See the work</a>
-            <a href="./assets/Zack-Olguin-CV.md" download="Zack Olguin Resume.md">CV</a>
+            <a href="./work.html">See my work</a>
+            <a href="./thinking.html">Explore my thinking</a>
+            <a href="./about.html">Read my story</a>
+            <a href="./assets/Zack-Olguin-Resume.pdf" target="_blank" rel="noopener">View my resume</a>
           </div>
-          <a class="scroll-cue" href="#curiosity" aria-label="Scroll to continue the homepage story">
+          <a class="scroll-cue" href="#work" aria-label="Scroll to continue the homepage story">
             <span>Scroll to keep going</span>
             <i aria-hidden="true"></i>
           </a>
         </div>
         <div class="homepage-image hero-image reveal">
           <img
-            src="./assets/images/zack-character.png"
-            alt="Illustrated character portrait of Zack wearing a cap and glasses"
+            src="./assets/images/about-zack-olguin.jpg"
+            alt="Zack Olguin kayaking through a mountain fjord"
+            style="aspect-ratio: 4 / 5; object-fit: cover; border-radius: 8px; transform: none;"
           />
+        </div>
+      </section>
+
+      <section id="work" class="story-section proof-section proof-scene">
+        <div class="section-heading reveal">
+          <div>
+            <h2>Noticing is just the beginning.</h2>
+            <p>
+              The work starts when those observations become clearer messages, sharper
+              decisions, and better ways to help people take the next step.
+            </p>
+          </div>
+          <a class="text-link" href="./work.html">View my work</a>
+        </div>
+        <div class="feature-strip">
+          <a class="quiet-card reveal" href="./case-studies/hpu-virginia-demand-engine.html">
+            <div class="work-image homepage-virginia-map-image" aria-hidden="true">
+              <img
+                src="./assets/images/hpu-virginia-map-2025.png"
+                alt=""
+                style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 74% 44%;"
+              />
+            </div>
+            <p>Work</p>
+            <h3>Building a Smarter Growth Strategy for Virginia</h3>
+            <span>A case study on prioritizing schools, sharpening market strategy, and earning attention in Virginia.</span>
+            <span class="read-link">7 min read</span>
+          </a>
+          <a class="quiet-card reveal" href="./case-studies/hpu-experience-enrollment-growth.html">
+            <div class="work-image hpu-experience-image" aria-hidden="true"></div>
+            <p>Work</p>
+            <h3>How We Turned the HPU Experience Into Enrollment Growth</h3>
+            <span>Turning campus experience, visits, and Early Decision into a clearer reason to believe.</span>
+            <span class="read-link">3 min read</span>
+          </a>
+          <a class="quiet-card reveal" href="./thoughts/new-years-eve-authenticity.html">
+            <div class="work-image nye-image" aria-hidden="true"></div>
+            <p>Thinking</p>
+            <h3>New Year&apos;s Eve and the search for something real</h3>
+            <span>What hollow rituals reveal about authenticity, culture, and moments people actually feel.</span>
+            <span class="read-link">4-5 min read</span>
+          </a>
         </div>
       </section>
 
@@ -71,39 +118,28 @@
           <h2>I think curiosity is one of the best teachers.</h2>
 
           <p>
-            Space, nature, questions, long conversations -- I&apos;ve always been
-            drawn toward things that make the world feel bigger.
+            Space, nature, strange questions, long conversations &mdash; I&apos;ve always
+            been drawn toward things that make the world feel bigger. Some of those
+            questions become short reflections on culture, behavior, technology, and
+            everyday life.
           </p>
-          <a class="text-link" href="./thinking.html">Explore my thoughts</a>
+          <a class="text-link" href="./thinking.html">Explore my thinking</a>
         </div>
       </section>
 
-      <section class="story-section story-row reverse copy-only human-insight">
-        <div class="story-copy reveal">
-          <h2>People rarely say exactly what they mean.</h2>
-
-          <p>
-            A lot of my work has been learning how to spot hesitation, trust,
-            identity, and the quiet reasons people get stuck.
-          </p>
-          <a class="text-link" href="./case-studies/private-school-parent-values.html">Read an audience note</a>
-        </div>
-      </section>
-
-      <section class="story-section story-row copy-only translation-scene">
-        <div class="story-copy reveal">
-          <h2>Clarity can change how people feel.</h2>
-
-          <div class="sentence-panel" aria-label="Sentence clarity slider">
-            <p class="sentence-output" id="sentenceOutput" aria-live="polite">
+      <section class="story-section story-row copy-only translation-scene" style="place-items: center; text-align: center;">
+        <div class="story-copy reveal" style="display: grid; justify-items: center; width: min(100%, 62rem); max-width: 62rem;">
+          <div class="sentence-panel" aria-label="Sentence clarity slider" style="width: min(100%, 62rem); margin-top: 0; padding-top: clamp(1.5rem, 3vw, 2.5rem);">
+            <p class="sentence-output" id="sentenceOutput" aria-live="polite" style="font-size: clamp(1.65rem, 3.2vw, 3.2rem) !important; font-weight: 700; line-height: 1.25 !important;">
               I like turning complicated ideas into something people can connect with.
             </p>
 
-            <div class="slider-row">
+            <div class="slider-row" style="width: min(100%, 50rem); margin: clamp(1.7rem, 3vw, 2.4rem) auto 0;">
               <span class="slider-label">Simple</span>
               <input
                 id="complexitySlider"
                 class="complexity-slider"
+                style="height: 2rem;"
                 type="range"
                 min="0"
                 max="18"
@@ -121,38 +157,9 @@
         </div>
       </section>
 
-      <section class="story-section proof-section proof-scene">
-        <div class="section-heading reveal">
-          <div>
-            <h2>Noticing things can be useful when paired with action.</h2>
-          </div>
-          <a class="text-link" href="./work.html">View work</a>
-        </div>
-        <div class="feature-strip">
-          <a class="quiet-card reveal" href="./case-studies/training-redesign.html">
-            <p>Work</p>
-            <h3>Training as a growth system</h3>
-            <span>Turning team frustration into a capability-building model.</span>
-            <span class="read-link">1-2 min read</span>
-          </a>
-          <a class="quiet-card reveal" href="./thoughts/new-years-eve-authenticity.html">
-            <p>Thinking</p>
-            <h3>New Year&apos;s Eve and the search for something real</h3>
-            <span>What hollow rituals reveal about authenticity and culture.</span>
-            <span class="read-link">4-5 min read</span>
-          </a>
-          <a class="quiet-card reveal" href="./point-of-view.html">
-            <p>Point of View</p>
-            <h3>Your story doesn&apos;t matter unless it&apos;s theirs</h3>
-            <span>A short philosophy of brand translation and audience meaning.</span>
-            <span class="read-link">2 min read</span>
-          </a>
-        </div>
-      </section>
-
       <section class="story-section closing-story closing-scene">
         <div class="story-copy reveal">
-          <h2>I&apos;m still figuring things out.<br />But that&apos;s part of the fun.</h2>
+          <h2><span>I&apos;m still figuring things out.</span><span>But that&apos;s part of the fun.</span></h2>
           <div class="story-links">
             <a href="./contact.html">Get in touch</a>
             <a href="https://linkedin.com/in/zack-olguin/">LinkedIn</a>

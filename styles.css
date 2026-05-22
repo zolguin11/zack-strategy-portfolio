@@ -200,6 +200,13 @@ nav a:hover,
   line-height: 1.48 !important;
 }
 
+.story-lede strong {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--clay);
+  font-weight: 800;
+}
+
 .story-links,
 .contact-actions {
   display: flex;
@@ -282,7 +289,9 @@ nav a:hover,
 
 .hero-image img {
   width: min(100%, 34rem);
-  transform: scaleX(-1);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .curiosity-image img {
@@ -906,8 +915,9 @@ h3 {
 }
 
 .about-page .post-hero {
-  grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
-  align-items: center;
+  display: block;
+  min-height: auto;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
 }
 
 .about-page .post-copy h1 {
@@ -950,6 +960,39 @@ h3 {
 .about-photo img {
   min-height: 0;
   object-position: center center;
+}
+
+.about-page .post-body {
+  display: block;
+  max-width: 64rem;
+  padding-top: 0;
+}
+
+.about-photo-inline {
+  float: right;
+  width: min(44%, 25rem);
+  margin: 0 0 1.25rem clamp(1.5rem, 4vw, 2.5rem);
+  aspect-ratio: auto;
+  background: transparent;
+}
+
+.post-image.media-frame.about-photo-inline img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center center;
+  transform: none;
+}
+
+.about-page .post-body p + p {
+  margin-top: 1.35rem;
+}
+
+.about-page .post-body::after {
+  display: block;
+  clear: both;
+  content: "";
 }
 
 .post-image span {
@@ -1655,6 +1698,12 @@ figcaption {
     width: min(100%, 24rem);
   }
 
+  .about-photo-inline {
+    float: none;
+    width: min(100%, 24rem);
+    margin: 0 0 1.5rem;
+  }
+
   .case-study-document {
     width: min(100% - 1.25rem, 74rem);
   }
@@ -1840,13 +1889,14 @@ body:has(.storybook) {
 
 .storybook .hero-image img {
   width: min(100%, 30rem);
-  transform: scaleX(-1);
 }
 
 .storybook .curiosity {
   grid-template-columns: minmax(11rem, 0.54fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(1.5rem, 5vw, 5rem);
+  min-height: 72vh;
+  padding-bottom: clamp(3rem, 5vw, 5rem) !important;
 }
 
 .storybook .curiosity::before {
@@ -1934,10 +1984,64 @@ body:has(.storybook) {
   transform: rotate(-8deg) translate3d(0, calc(var(--scene-progress, 0) * -20px), 0);
 }
 
+.storybook .translation-scene {
+  min-height: 58vh;
+  padding-top: clamp(2.5rem, 4vw, 4.5rem) !important;
+  padding-bottom: clamp(2.5rem, 4vw, 4.5rem) !important;
+  place-items: center;
+  text-align: center;
+}
+
+.storybook .translation-scene .story-copy {
+  display: grid;
+  justify-items: center;
+  width: min(100%, 62rem);
+  max-width: 62rem;
+}
+
 .storybook .sentence-panel {
-  margin-top: 1rem;
-  padding: clamp(1.1rem, 2vw, 1.4rem) 0 0;
+  width: min(100%, 62rem);
+  margin-top: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 0 0;
   border-top: 1px solid rgba(216, 208, 194, 0.72);
+}
+
+.storybook .translation-scene .sentence-output {
+  font-size: clamp(1.65rem, 3.2vw, 3.2rem) !important;
+  font-weight: 700;
+  line-height: 1.25 !important;
+}
+
+.storybook .translation-scene .slider-row {
+  width: min(100%, 50rem);
+  margin: clamp(1.7rem, 3vw, 2.4rem) auto 0;
+}
+
+.storybook .translation-scene .slider-label {
+  font-size: 1rem;
+}
+
+.storybook .translation-scene .complexity-slider {
+  height: 2rem;
+}
+
+.storybook .translation-scene .complexity-slider::-webkit-slider-runnable-track {
+  height: 7px;
+}
+
+.storybook .translation-scene .complexity-slider::-webkit-slider-thumb {
+  width: 26px;
+  height: 26px;
+  margin-top: -9.5px;
+}
+
+.storybook .translation-scene .complexity-slider::-moz-range-track {
+  height: 7px;
+}
+
+.storybook .translation-scene .complexity-slider::-moz-range-thumb {
+  width: 26px;
+  height: 26px;
 }
 
 .storybook .proof-scene {
@@ -1986,7 +2090,9 @@ body:has(.storybook) {
 }
 
 .storybook .closing-scene {
-  min-height: 82vh;
+  min-height: 48vh;
+  padding-top: clamp(2.5rem, 5vw, 5rem) !important;
+  padding-bottom: clamp(3.5rem, 6vw, 6rem) !important;
   align-items: center;
   justify-items: center;
   text-align: center;
@@ -2010,6 +2116,18 @@ body:has(.storybook) {
   font-size: clamp(2.3rem, 5vw, 4.6rem);
   font-weight: 500;
   line-height: 0.98;
+}
+
+.storybook .closing-story .story-copy h2 {
+  width: max-content;
+  max-width: 100%;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.storybook .closing-story .story-copy h2 span {
+  display: block;
+  white-space: nowrap;
 }
 
 .storybook .story-copy p,
