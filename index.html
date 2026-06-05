@@ -127,19 +127,18 @@
         </div>
       </section>
 
-      <section class="story-section story-row copy-only translation-scene" style="place-items: center; text-align: center;">
-        <div class="story-copy reveal" style="display: grid; justify-items: center; width: min(100%, 62rem); max-width: 62rem;">
-          <div class="sentence-panel" aria-label="Sentence clarity slider" style="width: min(100%, 62rem); margin-top: 0; padding-top: clamp(1.5rem, 3vw, 2.5rem);">
-            <p class="sentence-output" id="sentenceOutput" aria-live="polite" style="font-size: clamp(1.65rem, 3.2vw, 3.2rem) !important; font-weight: 700; line-height: 1.25 !important;">
+      <section class="story-section story-row copy-only translation-scene">
+        <div class="story-copy reveal">
+          <div class="sentence-panel" aria-label="Sentence clarity slider">
+            <p class="sentence-output" id="sentenceOutput" aria-live="polite">
               I like turning complicated ideas into something people can connect with.
             </p>
 
-            <div class="slider-row" style="width: min(100%, 50rem); margin: clamp(1.7rem, 3vw, 2.4rem) auto 0;">
+            <div class="slider-row">
               <span class="slider-label">Simple</span>
               <input
                 id="complexitySlider"
                 class="complexity-slider"
-                style="height: 2rem;"
                 type="range"
                 min="0"
                 max="18"
