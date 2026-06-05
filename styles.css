@@ -759,7 +759,10 @@ h3 {
   content: "";
 }
 
-.work-image span,
+.work-image::after {
+  content: none;
+}
+
 .post-image span {
   position: relative;
   z-index: 1;
@@ -850,6 +853,18 @@ h3 {
     radial-gradient(circle at 72% 24%, rgba(143, 183, 201, 0.38), transparent 22%),
     radial-gradient(circle at 30% 78%, rgba(214, 180, 106, 0.36), transparent 20%),
     var(--wash);
+}
+
+.melly-image::before {
+  background:
+    linear-gradient(rgba(36, 33, 29, 0.08), rgba(36, 33, 29, 0.2)),
+    url("./assets/images/melly-snowy-mountain.png") center / cover;
+}
+
+.picnic-image::before {
+  background:
+    linear-gradient(rgba(36, 33, 29, 0.04), rgba(36, 33, 29, 0.2)),
+    url("./assets/images/picnic-blanket-rocky-shore.png") center / cover;
 }
 
 .pov-image::before {
@@ -1125,15 +1140,15 @@ figcaption {
   margin: clamp(1rem, 3vw, 2rem) 0 clamp(3rem, 6vw, 5rem);
 }
 
-.thought-hero .return-links {
+.thought-hero .breadcrumbs {
   margin-bottom: clamp(2rem, 6vw, 5rem);
 }
 
-.thought-hero .back-link {
+.thought-hero .breadcrumbs {
   color: rgba(255, 254, 249, 0.78);
 }
 
-.thought-hero .back-link::before {
+.thought-hero .breadcrumbs span[aria-hidden="true"] {
   color: rgba(255, 254, 249, 0.72);
 }
 
@@ -1635,6 +1650,30 @@ figcaption {
   color: var(--signal);
 }
 
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.32rem;
+  margin-bottom: 2rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.breadcrumbs a:hover {
+  color: var(--ink);
+}
+
+.breadcrumbs span[aria-hidden="true"] {
+  color: var(--clay);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--ink);
+}
+
 .post-body {
   display: grid;
   gap: 1.35rem;
@@ -1658,6 +1697,239 @@ figcaption {
 
 .essay .post-body {
   max-width: 54rem;
+}
+
+.melly-article {
+  padding-inline: clamp(1rem, 7vw, 6rem);
+}
+
+.melly-title {
+  max-width: 54rem;
+  margin: 0 auto clamp(1.5rem, 4vw, 3rem);
+}
+
+.melly-title h1 {
+  max-width: none;
+  font-size: clamp(4rem, 9vw, 8rem);
+}
+
+.melly-title .lede {
+  max-width: 34rem;
+}
+
+.melly-hero-image,
+.melly-product-image,
+.melly-mountain-image {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(16, 17, 19, 0.1);
+  border-radius: 8px;
+  background: var(--wash);
+}
+
+.melly-hero-image {
+  width: min(54rem, 100%);
+  margin: 0 auto;
+}
+
+.melly-hero-image img,
+.melly-product-image img,
+.melly-mountain-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.melly-body {
+  padding-top: clamp(2rem, 5vw, 4rem);
+}
+
+.melly-section {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.melly-product-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(14rem, 0.68fr);
+  gap: clamp(1.25rem, 4vw, 2.5rem);
+  align-items: start;
+}
+
+.melly-product-layout > div {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.melly-product-image {
+  align-self: start;
+  background: #fff;
+}
+
+.melly-pullquote {
+  margin: clamp(1rem, 3vw, 2rem) 0;
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.melly-mountain-image {
+  width: min(100%, 48rem);
+}
+
+.melly-recognition {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+
+.melly-recognition p {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.melly-lessons {
+  display: grid;
+  gap: 1.2rem;
+  margin-top: clamp(1rem, 3vw, 2rem);
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(255, 254, 249, 0.72);
+}
+
+.melly-lessons h2 {
+  margin-top: 0;
+}
+
+.melly-lesson-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--line);
+}
+
+.melly-lesson-card {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1rem;
+  background: var(--paper);
+}
+
+.melly-lesson-card span {
+  color: var(--clay);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.melly-lesson-card h3 {
+  font-size: 1.05rem;
+  line-height: 1.25;
+}
+
+.melly-lesson-card p {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.melly-password {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: clamp(2rem, 5vw, 4rem);
+  padding-top: clamp(2rem, 5vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+.melly-password h2 {
+  margin-top: 0;
+}
+
+.picnic-article {
+  padding-inline: clamp(1rem, 7vw, 6rem);
+}
+
+.picnic-title {
+  max-width: 54rem;
+  margin: 0 auto clamp(1.25rem, 3vw, 2rem);
+}
+
+.picnic-title h1 {
+  max-width: 12ch;
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+}
+
+.picnic-hero-image,
+.picnic-center-image,
+.picnic-table-image {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(16, 17, 19, 0.1);
+  border-radius: 8px;
+  background: var(--wash);
+}
+
+.picnic-hero-image {
+  width: min(54rem, 100%);
+  margin: 0 auto clamp(2.5rem, 6vw, 5rem);
+}
+
+.picnic-center-image {
+  width: min(100%, 48rem);
+}
+
+.picnic-table-image {
+  justify-self: center;
+  width: min(86%, 42rem);
+}
+
+.picnic-hero-image img,
+.picnic-center-image img,
+.picnic-table-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.picnic-body {
+  padding-top: 0;
+}
+
+.picnic-pullquote {
+  margin: clamp(1.25rem, 4vw, 2.5rem) 0;
+  padding: clamp(1.2rem, 3vw, 2rem) 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.picnic-divider {
+  margin: clamp(1.5rem, 4vw, 3rem) 0 0;
+  color: var(--clay);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.45rem;
+  text-align: center;
+}
+
+.picnic-ending {
+  display: grid;
+  gap: 1.35rem;
+  padding-top: clamp(1rem, 3vw, 2rem);
 }
 
 .collection-hero {
@@ -1867,6 +2139,15 @@ figcaption {
 
   .contact-layout {
     grid-template-columns: 1fr;
+  }
+
+  .melly-product-layout,
+  .melly-lesson-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .melly-product-image {
+    order: -1;
   }
 
   h1 {
