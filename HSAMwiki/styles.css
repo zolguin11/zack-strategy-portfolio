@@ -1116,10 +1116,10 @@ h2 {
   margin-bottom: 4rem;
   color: var(--cream);
   font-family: var(--serif);
-  font-size: clamp(2.6rem, 5.2vw, 5.2rem);
+  font-size: clamp(1.3rem, 2.6vw, 2.6rem);
   font-weight: 500;
   letter-spacing: -0.035em;
-  line-height: 1.02;
+  line-height: 1.22;
   text-wrap: balance;
 }
 
