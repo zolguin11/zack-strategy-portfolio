@@ -112,3 +112,145 @@ if (inquiryForm) {
     window.location.href = mailto;
   });
 }
+
+const questionCarousels = document.querySelectorAll("[data-carousel]");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+questionCarousels.forEach((carousel, carouselIndex) => {
+  const questions = Array.from(carousel.querySelectorAll("li"));
+  let currentIndex = 0;
+  let rotationTimer = null;
+  let rotationStartTimer = null;
+  let transitionTimer = null;
+  let activeQuestionAnimations = [];
+
+  const renderQuestions = () => {
+    questions.forEach((question) => {
+      question.classList.remove("is-current", "is-next", "is-next-two", "is-next-three");
+    });
+
+    questions[currentIndex].classList.add("is-current");
+    questions[(currentIndex + 1) % questions.length].classList.add("is-next");
+    questions[(currentIndex + 2) % questions.length].classList.add("is-next-two");
+    questions[(currentIndex + 3) % questions.length].classList.add("is-next-three");
+  };
+
+  const advanceQuestions = () => {
+    const visibleQuestions = [
+      carousel.querySelector(".is-current"),
+      carousel.querySelector(".is-next"),
+      carousel.querySelector(".is-next-two"),
+      carousel.querySelector(".is-next-three"),
+    ];
+
+    if (!visibleQuestions[0] || typeof visibleQuestions[0].animate !== "function") {
+      currentIndex = (currentIndex + 1) % questions.length;
+      renderQuestions();
+      return;
+    }
+
+    const questionRects = visibleQuestions.map((question) => question.getBoundingClientRect());
+    const questionListRect = carousel.querySelector("ul").getBoundingClientRect();
+    const incomingQuestion = questions[(currentIndex + 4) % questions.length];
+    const incomingDistance = questionRects[3].top - questionRects[2].top;
+    const endingOpacities = [0, 1, 0.5, 0.3];
+
+    incomingQuestion.classList.add("is-incoming");
+    incomingQuestion.style.top = `${questionRects[3].top - questionListRect.top + incomingDistance}px`;
+
+    activeQuestionAnimations = visibleQuestions.map((question, index) => {
+      const distance = index === 0
+        ? questionRects[1].top - questionRects[0].top
+        : questionRects[index].top - questionRects[index - 1].top;
+
+      return question.animate(
+        [
+          {
+            opacity: getComputedStyle(question).opacity,
+            transform: "translateY(0)",
+          },
+          {
+            opacity: endingOpacities[index],
+            transform: `translateY(${-distance}px)`,
+          },
+        ],
+        {
+          duration: 520,
+          delay: index * 35,
+          easing: "cubic-bezier(0.2, 0, 0, 1)",
+          fill: "forwards",
+        }
+      );
+    });
+
+    activeQuestionAnimations.push(
+      incomingQuestion.animate(
+        [
+          { opacity: 0, transform: "translateY(0)" },
+          {
+            opacity: 0.16,
+            transform: `translateY(${-incomingDistance}px)`,
+          },
+        ],
+        {
+          duration: 520,
+          easing: "cubic-bezier(0.2, 0, 0, 1)",
+          fill: "forwards",
+        }
+      )
+    );
+
+    transitionTimer = window.setTimeout(() => {
+      currentIndex = (currentIndex + 1) % questions.length;
+      renderQuestions();
+
+      activeQuestionAnimations.forEach((animation) => animation.cancel());
+      activeQuestionAnimations = [];
+      incomingQuestion.classList.remove("is-incoming");
+      incomingQuestion.style.top = "";
+
+      transitionTimer = null;
+    }, 640);
+  };
+
+  const stopRotation = () => {
+    if (transitionTimer !== null) {
+      window.clearTimeout(transitionTimer);
+      transitionTimer = null;
+    }
+
+    activeQuestionAnimations.forEach((animation) => animation.cancel());
+    activeQuestionAnimations = [];
+    carousel.querySelectorAll(".is-incoming").forEach((question) => {
+      question.classList.remove("is-incoming");
+      question.style.top = "";
+    });
+
+    if (rotationStartTimer !== null) {
+      window.clearTimeout(rotationStartTimer);
+      rotationStartTimer = null;
+    }
+
+    if (rotationTimer !== null) {
+      window.clearInterval(rotationTimer);
+      rotationTimer = null;
+    }
+  };
+
+  const startRotation = () => {
+    stopRotation();
+    if (reduceMotion.matches) return;
+    rotationStartTimer = window.setTimeout(() => {
+      advanceQuestions();
+      rotationTimer = window.setInterval(advanceQuestions, 4000);
+      rotationStartTimer = null;
+    }, 4000 + carouselIndex * 500);
+  };
+
+  carousel.addEventListener("focusin", stopRotation);
+  carousel.addEventListener("focusout", startRotation);
+  reduceMotion.addEventListener("change", startRotation);
+
+  renderQuestions();
+  startRotation();
+});
