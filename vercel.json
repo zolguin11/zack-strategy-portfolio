@@ -1,0 +1,9 @@
+{
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/how-I-work",
+      "destination": "/how-I-work/index.html"
+    }
+  ]
+}
