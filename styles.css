@@ -4009,3 +4009,21 @@ body:has(.storybook) {
     transition: none;
   }
 }
+
+/* How I Work — centered editorial column */
+.attention-section:not(.bring-section) {
+  width: 100%;
+  max-width: none;
+  padding-right: max(1.25rem, calc((100% - 58rem) / 2));
+  padding-left: max(1.25rem, calc((100% - 58rem) / 2));
+}
+
+.attention-hero-copy {
+  width: 100%;
+  margin-inline: auto;
+}
+
+.bring-section > p:not(.eyebrow) {
+  margin-right: auto;
+  margin-left: auto;
+}
